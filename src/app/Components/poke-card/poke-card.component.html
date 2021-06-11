@@ -1,10 +1,22 @@
-<div class="card" style="width: 18rem;">
-  <img [ngClass]="pokemon.types[0].type.name" class="card-img-top" [src]="pokemon.sprites.front_default" alt="Card image cap">
-  <div class="card-body">
-    <h5 class="card-title">{{ pokemon.name }}</h5>
-    <p class="card-text">{{ pokemon.types[0].type.name }}</p>
-    <p class="card-text" *ngIf="pokemon.types[1]">{{ pokemon.types[1].type.name }}</p>
-    <p class="card-text" *ngIf="!pokemon.types[1]">N/A</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+<div class="flid-card">
+  <div [ngClass]="{'card': true, 'flip-card--front': true, 'flipped': isFlipped}" style="width: 18rem;">
+    <img [ngClass]="pokemon.types[0].type.name" class="card-img-top" [src]="pokemon.sprites.front_default" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">{{ pokemon.name }}</h5>
+      <p class="card-text">{{ pokemon.types[0].type.name }}</p>
+      <p class="card-text" *ngIf="pokemon.types[1]">{{ pokemon.types[1].type.name }}</p>
+      <p class="card-text" *ngIf="!pokemon.types[1]">N/A</p>
+      <button class="btn btn-primary" (click)="onClick()" >Sprites</button>
+    </div>
+  </div>
+  <div [ngClass]="{'card': true, 'flip-card--back': true, 'flipped': !isFlipped}" style="width: 18rem;">
+    <img [ngClass]="pokemon.types[0].type.name" class="card-img-top" [src]="currentSprite" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">{{ pokemon.name }}</h5>
+      <p class="card-text">Sprite name:</p>
+      <p class="card-text">{{ spriteNames[spriteCounter]}} {{spriteCounter}}</p>
+      <button class="btn btn-primary" (click)="onClick()" >Details</button>
+      <button class="btn btn-secondary" style="margin: 10px;" (click)="onNextSprite()">Next sprite</button>
+    </div>
   </div>
 </div>

@@ -13,7 +13,7 @@ export class AppComponent {
   pokemons: Array<IPokemon> = [];
 
   constructor(private pokemonFetcher:PokemonFetcherService) {
-    for (let i = 1; i < 2; i++) {
+    for (let i = 1; i < 150; i++) {
       this.pokemonFetcher.fetchPokemon(i).subscribe( data => {
         this.pokemons.push(data);
       }, error => {

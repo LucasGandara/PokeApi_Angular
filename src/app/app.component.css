@@ -1,6 +1,7 @@
 .card-shower {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(150, 468px);
   margin-top: 10px;
   gap: 10px;
 }
